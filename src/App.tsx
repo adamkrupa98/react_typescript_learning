@@ -1,11 +1,10 @@
-import { CarServiceForm } from "./userForm/CarServiceForm";
+import { RandomUser } from "./useEffect/RandomUser";
 
 function App() {
 
   return (
     <div>
-      <p>User Form:</p>
-      <CarServiceForm />
+      <RandomUser />
     </div>
   )
 }
