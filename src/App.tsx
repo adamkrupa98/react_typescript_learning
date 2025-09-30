@@ -1,10 +1,10 @@
-import { RandomUser } from "./useEffect/RandomUser";
+import { RandomJoke } from "./useEffect/RandomJoke";
 
 function App() {
 
   return (
     <div>
-      <RandomUser />
+      <RandomJoke />
     </div>
   )
 }
