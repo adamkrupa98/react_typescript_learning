@@ -5,6 +5,7 @@ type Task = {
   title: string;
   completed: boolean;
 };
+type Filter = 'active' | 'finished' | 'all';
 
 const TaskList = () => {
   const [task, setTask] = useState<Task[]>([
@@ -12,6 +13,8 @@ const TaskList = () => {
     { id: 2, title: "sprzątanie", completed: false },
     { id: 3, title: "spacer", completed: true },
   ]);
+
+  const [filter, setFilter] = useState<Filter>('all');
 
   const handleFinishAll = () => {
     setTask(prev => prev.map(t => ({ ...t, completed: true })));
@@ -27,7 +30,16 @@ const TaskList = () => {
 
   return (
     <div>
-      {task.map(task => (
+       <button onClick={() => setFilter('all')}>Pokaż wszystkie</button>
+       <button onClick={() => setFilter('finished')}>Pokaż ukończone</button>
+       <button onClick={() => setFilter('active')}>Pokaż aktywne</button>
+      {task
+      .filter(task => {
+        if(filter == 'active') return !task.completed ;
+        if(filter == 'finished') return task.completed;
+        return true
+      })
+      .map(task => (
         <div key={task.id}>
           <p style={{ color: task.completed ? "green" : "red" }}>
             {task.title}
