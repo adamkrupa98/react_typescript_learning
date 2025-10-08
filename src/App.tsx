@@ -1,10 +1,10 @@
-import TaskList from "./useEffect/TaskList";
+import TaskManager from "./action/TaskManager";
 
 function App() {
 
   return (
     <div>
-      <TaskList />
+      <TaskManager />
     </div>
   )
 }
